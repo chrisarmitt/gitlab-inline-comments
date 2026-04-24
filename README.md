@@ -4,6 +4,8 @@
 
 Post review comments to GitLab Merge Requests as **inline, diff-positioned discussion threads** — with graceful fallback when exact positioning isn't possible.
 
+Originally built as a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for an agent-driven code-review pipeline — where it posts diff-positioned findings on every reviewed MR, backing a multi-agent review orchestration. Extracted here with proprietary references removed.
+
 Two small, focused Bash scripts. Hit the GitLab REST API directly. No framework, no runtime, no node_modules.
 
 ```bash
@@ -19,7 +21,7 @@ Two small, focused Bash scripts. Hit the GitLab REST API directly. No framework,
 
 ## Why this exists
 
-GitLab's own MCP (Model Context Protocol) connector exposes read operations for MRs (`get_merge_request`, `get_merge_request_diffs`, etc.) but its write tool — `create_workitem_note` — can only create **general** MR notes. It doesn't support diff-positioned inline comments.
+As of April 2026, GitLab's MCP (Model Context Protocol) connector exposes read operations for MRs (`get_merge_request`, `get_merge_request_diffs`, etc.) but its write tool — `create_workitem_note` — can only create **general** MR notes. It doesn't support diff-positioned inline comments.
 
 If you're building a code-review agent that reads an MR diff, forms opinions about specific lines, and wants to post those opinions **next to the lines they refer to**, the MCP surface alone leaves you stranded on general-note fallback — comments drift away from the code they're about, and reviewers can't resolve them per-thread.
 
@@ -192,7 +194,7 @@ An agent can then invoke the skill to post findings inline as part of a review p
 
 ## Credits
 
-Originally written by Chris Armitt. Refined collaboratively Claude (Anthropic) during production use in an agentic code-review pipeline.
+Originally written by Chris Armitt. Refined collaboratively with Claude (Anthropic) during production use in an agentic code-review pipeline.
 
 ## License
 
