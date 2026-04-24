@@ -1,5 +1,7 @@
 # gitlab-inline-comments
 
+[![CI](https://github.com/chrisarmitt/gitlab-inline-comments/actions/workflows/ci.yml/badge.svg)](https://github.com/chrisarmitt/gitlab-inline-comments/actions/workflows/ci.yml)
+
 Post review comments to GitLab Merge Requests as **inline, diff-positioned discussion threads** — with graceful fallback when exact positioning isn't possible.
 
 Two small, focused Bash scripts. Hit the GitLab REST API directly. No framework, no runtime, no node_modules.
